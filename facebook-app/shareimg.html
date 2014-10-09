@@ -44,7 +44,7 @@
  
     };
  
-    function Login(source)
+    function Login()
     {
  
         FB.login(function(response) {
@@ -101,7 +101,7 @@
    }(document, 'script', 'facebook-jssdk'));
   
   function postPhoto(){
-     // Login();
+      Login();
        var obj = {
             method: "feed",
             link: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/share.jpg',
