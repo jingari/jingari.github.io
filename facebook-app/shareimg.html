@@ -44,7 +44,7 @@
  
     };
  
-    function Login()
+    function Login(source)
     {
  
         FB.login(function(response) {
@@ -55,7 +55,10 @@
             {
              console.log('User cancelled login or did not fully authorize.');
             }
-         },{scope: 'email,user_photos,user_videos'});
+         },{scope: 'email,user_photos'});
+        if(source == 'photo'){
+          postPhoto();
+        }
  
     }
  
@@ -98,7 +101,7 @@
    }(document, 'script', 'facebook-jssdk'));
   
   function postPhoto(){
-      Login();
+      Login(photo);
        var obj = {
             method: "feed",
             link: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/share.jpg',
@@ -129,7 +132,6 @@ Logs:<br/>
 <div id="status">
  Click on Below Image to start the demo: <br/></div>
 <img src="https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/share.jpg"  style="cursor:pointer;" onclick="postPhoto()"/>
-<?php get_sidebar('article'); ?>
 
 </body>
 </html>
