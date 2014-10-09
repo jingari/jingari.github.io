@@ -51,14 +51,13 @@
            if (response.authResponse)
            {
                 getUserInfo();
+                postPhoto();
             } else
             {
              console.log('User cancelled login or did not fully authorize.');
             }
          },{scope: 'email,user_photos'});
-        if(source == 'photo'){
-          postPhoto();
-        }
+        
  
     }
  
