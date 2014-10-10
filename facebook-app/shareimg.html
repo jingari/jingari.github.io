@@ -116,16 +116,12 @@
 
       // POST A IMAGE WITH DIALOG using FB.api
       function postPhoto() {
-          var wallPost = {
-            message: "I just got a poverty-fighting gift from OxfamGifts.com!",
-            url: "https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg"
-          };
           FB.api(
               "/me/photos", 
               "POST", 
               {
-                message: "I just got a poverty-fighting gift from OxfamGifts.com!",
-                url: "https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg"
+                "message": "I just got a poverty-fighting gift from OxfamGifts.com!",
+                "url": "https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg"
               }, 
               function (response) {
             if (response && !response.error) {
