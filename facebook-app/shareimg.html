@@ -159,11 +159,13 @@
             function (response) {
               if (response && !response.error) {
                 /* handle the result */
+                alert("Response:"+response.status);
                 console.log("RESPONSE:"+response);
               }
               else{
 
-                console.log("RESPONSE:"+response);
+                alert("else Response:"+response.status);
+                console.log("else RESPONSE:"+response);
               }
             }
         );
