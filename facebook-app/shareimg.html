@@ -62,11 +62,31 @@
     }
  var uid = "";
   function getUserInfo() {
+
+    FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    // the user is logged in and has authenticated your
+    // app, and response.authResponse supplies
+    // the user's ID, a valid access token, a signed
+    // request, and the time the access token 
+    // and signed request each expire
+    var uid = response.authResponse.userID;
+    var accessToken = response.authResponse.accessToken;
+  } else if (response.status === 'not_authorized') {
+    // the user is logged in to Facebook, 
+    // but has not authenticated your app
+  } else {
+    // the user isn't logged in to Facebook.
+  }
+  console.log("uid="=uid);
+  console.log("accessToken="=accessToken);
+ });
+
         FB.api('/me', function(response) {
- uid = response.authResponse.userID;
+
       var str="<b>Name</b> : "+response.name+"<br>";
           str +="<b>Link: </b>"+response.link+"<br>";
-          str +="<b>User ID:</b> "+uid+"<br>";
+          //str +="<b>User ID:</b> "+response.authResponse.userID;+"<br>";
           str +="<b>id: </b>"+response.id+"<br>";
           str +="<b>Email:</b> "+response.email+"<br>";
           str +="<input type='button' value='Get Photo' onclick='getPhoto();'/>";
@@ -75,6 +95,8 @@
  
     });
     }
+
+
     function getPhoto()
     {
       FB.api('/me/picture?type=normal', function(response) {
