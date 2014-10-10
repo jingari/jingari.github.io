@@ -99,9 +99,23 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
   
-  function postPhoto(){
+  function postPhotoOld(){
       var obj = {
             method: "feed",
+            //link: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
+            picture: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
+            //name: "OxfamGifts.com",
+            //caption: "I <3 gifts that give back",
+            description: "I just got a poverty-fighting gift from OxfamGifts.com!"
+        };
+        function callback(response) {
+            console.log(response);
+        }
+        FB.ui(obj, callback);
+      }
+      function postPhoto1(){
+      var obj = {
+            method: "share",
             //link: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
             picture: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
             //name: "OxfamGifts.com",
@@ -132,13 +146,14 @@
           });
       }
 
-    function postPhoto2(){
+    function postPhoto(){
+
       /* make the API call */
         FB.api(
             "/me/photos",
             "POST",
             {
-                "url": "https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg",
+                "url": "{https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg}",
                 "message": "I just got a poverty-fighting gift from OxfamGifts.com!"
             },
             function (response) {
@@ -146,12 +161,13 @@
                 /* handle the result */
                 console.log("RESPONSE:"+response);
               }
+              else{
+
+                console.log("RESPONSE:"+response);
+              }
             }
         );
-        function callback(response) {
-            console.log(response);
-        }
-        FB.ui(obj, callback);
+    
     }
         /*
     var body = 'Reading JS SDK documentation';
