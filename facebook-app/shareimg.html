@@ -63,7 +63,8 @@
  var user = "";
   function getUserInfo() {
         FB.api('/me', function(response) {
- 
+ user = response.username;
+ console.log("user = "+user);
       var str="<b>Name</b> : "+response.name+"<br>";
           str +="<b>Link: </b>"+response.link+"<br>";
           str +="<b>Username:</b> "+response.username+"<br>";
@@ -74,7 +75,7 @@
           document.getElementById("status").innerHTML=str;
  
     });
-        user = response.username;
+        
     }
     function getPhoto()
     {
