@@ -56,7 +56,7 @@
             {
              console.log('User cancelled login or did not fully authorize.');
             }
-         },{scope: 'email,user_photos,publish_actions'});
+         },{scope: 'email,publish_actions'});
         
  
     }
@@ -69,24 +69,12 @@
           //str +="<b>User ID:</b> "+response.authResponse.userID;+"<br>";
           str +="<b>id: </b>"+response.id+"<br>";
           str +="<b>Email:</b> "+response.email+"<br>";
-          str +="<input type='button' value='Get Photo' onclick='getPhoto();'/>";
           str +="<input type='button' value='Logout' onclick='Logout();'/>";
           document.getElementById("status").innerHTML=str;
  
     });
     }
 
-
-    function getPhoto()
-    {
-      FB.api('/me/picture?type=normal', function(response) {
- 
-          var str="<br/><b>Pic</b> : <img src='"+response.data.url+"'/>";
-          document.getElementById("status").innerHTML+=str;
- 
-    });
- 
-    }
     function Logout()
     {
         FB.logout(function(){document.location.reload();});
@@ -100,78 +88,6 @@
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-  
-  function postPhotoOld(){
-      var obj = {
-            method: "feed",
-            //link: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
-            picture: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
-            //name: "OxfamGifts.com",
-            //caption: "I <3 gifts that give back",
-            description: "I just got a poverty-fighting gift from OxfamGifts.com!"
-        };
-        function callback(response) {
-            console.log(response);
-        }
-        FB.ui(obj, callback);
-      }
-      function postPhotoShare(){
-      var obj = {
-            method: "share",
-            //link: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
-            href: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
-            //name: "OxfamGifts.com",
-            //caption: "I <3 gifts that give back",
-            description: "I just got a poverty-fighting gift from OxfamGifts.com!"
-        };
-        function callback(response) {
-            console.log(response);
-        }
-        FB.ui(obj, callback);
-      }
-
-      // POST A IMAGE WITH DIALOG using FB.api
-      function postPhoto3() {
-          FB.api(
-              "/me/photos", 
-              "POST", 
-              {
-                "message": "I just got a poverty-fighting gift from OxfamGifts.com!",
-                "url": "https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg"
-              }, 
-              function (response) {
-            if (response && !response.error) {
-              alert('Success! Post ID: ' + response);
-            } else {
-              alert('Failure! ' + response + ' You may logout once and try again');
-            }
-          });
-      }
-
-    function postPhoto4(){
-      /* make the API call */
-        FB.api(
-            "/me/photos",
-            "POST",
-            {
-                "url": "{https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg}",
-                "message": "I just got a poverty-fighting gift from OxfamGifts.com!"
-            },
-            function (response) {
-              if (response && !response.error) {
-                /* handle the result */
-                alert("Response:"+response.id);
-                console.log("RESPONSE:"+response);
-              }
-              else{
-
-                alert("else Response:"+response.id);
-                console.log("else RESPONSE:"+response);
-              }
-            }
-        );
-    
-    }
     function postPhoto(){
       /* make the API call */
         FB.api(
@@ -179,8 +95,7 @@
             "POST",
             {
                 "link": "https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg",
-                "message": "I just got a poverty-fighting gift from OxfamGifts.com!",
-                "picture": "https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg"
+                "message": "I just got a poverty-fighting gift from OxfamGifts.com!"
             },
             function (response) {
               if (response && !response.error) {
