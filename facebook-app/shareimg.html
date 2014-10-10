@@ -115,7 +115,7 @@
         }
         FB.ui(obj, callback);
       }
-      function postPhoto(){
+      function postPhotoShare(){
       var obj = {
             method: "share",
             //link: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
@@ -156,6 +156,31 @@
             {
                 "url": "{https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg}",
                 "message": "I just got a poverty-fighting gift from OxfamGifts.com!"
+            },
+            function (response) {
+              if (response && !response.error) {
+                /* handle the result */
+                alert("Response:"+response.id);
+                console.log("RESPONSE:"+response);
+              }
+              else{
+
+                alert("else Response:"+response.id);
+                console.log("else RESPONSE:"+response);
+              }
+            }
+        );
+    
+    }
+    function postPhoto(){
+      /* make the API call */
+        FB.api(
+            "/me/feed",
+            "POST",
+            {
+                "link": "https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg",
+                "message": "I just got a poverty-fighting gift from OxfamGifts.com!",
+                "picture": "https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg"
             },
             function (response) {
               if (response && !response.error) {
