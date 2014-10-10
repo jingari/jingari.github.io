@@ -99,12 +99,12 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
   
-  function postPhoto(){
+  function postPhotoOld(){
       var obj = {
             method: "feed",
             //link: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
             picture: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
-            name: "OxfamGifts.com",
+            //name: "OxfamGifts.com",
             //caption: "I <3 gifts that give back",
             description: "I just got a poverty-fighting gift from OxfamGifts.com!"
         };
@@ -146,7 +146,6 @@
                 /* handle the result */
                 console.log("RESPONSE:"+response);
               }
-              else
             }
         );
         function callback(response) {
