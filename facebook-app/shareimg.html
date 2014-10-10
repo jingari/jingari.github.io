@@ -120,7 +120,14 @@
             message: "I just got a poverty-fighting gift from OxfamGifts.com!",
             url: "https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg"
           };
-          FB.api('/me/feed', 'post', wallPost , function(response) {
+          FB.api(
+              "/me/photos", 
+              "POST", 
+              {
+                message: "I just got a poverty-fighting gift from OxfamGifts.com!",
+                url: "https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg"
+              }, 
+              function (response) {
             if (!response || response.error) {
               alert('Failure! ' + response.status + ' You may logout once and try again');
             } else {
