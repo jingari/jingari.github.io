@@ -99,14 +99,14 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
   
-  function postPhotoOld(){
+  function postPhoto(){
       var obj = {
             method: "feed",
             //link: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
-            source: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
-            //name: "OxfamGifts.com",
+            picture: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
+            name: "OxfamGifts.com",
             //caption: "I <3 gifts that give back",
-            //description: "I just got a poverty-fighting gift from OxfamGifts.com!"
+            description: "I just got a poverty-fighting gift from OxfamGifts.com!"
         };
         function callback(response) {
             console.log(response);
@@ -115,7 +115,7 @@
       }
 
       // POST A IMAGE WITH DIALOG using FB.api
-      function postPhoto() {
+      function postPhoto3() {
           FB.api(
               "/me/photos", 
               "POST", 
@@ -146,6 +146,7 @@
                 /* handle the result */
                 console.log("RESPONSE:"+response);
               }
+              else
             }
         );
         function callback(response) {
