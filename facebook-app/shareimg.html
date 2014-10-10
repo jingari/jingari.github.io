@@ -60,7 +60,7 @@
         
  
     }
- 
+ var user = "";
   function getUserInfo() {
         FB.api('/me', function(response) {
  
@@ -74,6 +74,7 @@
           document.getElementById("status").innerHTML=str;
  
     });
+        user = response.username;
     }
     function getPhoto()
     {
@@ -147,10 +148,9 @@
       }
 
     function postPhoto(){
-
       /* make the API call */
         FB.api(
-            "/me/photos",
+            "/"+user+"/photos",
             "POST",
             {
                 "url": "{https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg}",
