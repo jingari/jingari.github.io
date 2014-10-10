@@ -128,10 +128,10 @@
                 url: "https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg"
               }, 
               function (response) {
-            if (!response || response.error) {
-              alert('Failure! ' + response.status + ' You may logout once and try again');
-            } else {
+            if (response && !response.error) {
               alert('Success! Post ID: ' + response);
+            } else {
+              alert('Failure! ' + response + ' You may logout once and try again');
             }
           });
       }
