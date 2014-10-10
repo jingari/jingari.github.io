@@ -113,21 +113,42 @@
         }
         FB.ui(obj, callback);
       }
-    function postPhoto(){
+
+      // POST A IMAGE WITH DIALOG using FB.api
+      function postPhoto() {
+          var wallPost = {
+            message: "I just got a poverty-fighting gift from OxfamGifts.com!",
+            url: "https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg"
+          };
+          FB.api('/me/feed', 'post', wallPost , function(response) {
+            if (!response || response.error) {
+              alert('Failure! ' + response.status + ' You may logout once and try again');
+            } else {
+              alert('Success! Post ID: ' + response);
+            }
+          });
+      }
+
+    function postPhoto2(){
       /* make the API call */
         FB.api(
             "/me/photos",
             "POST",
             {
-                "url": "https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg"
+                "url": "https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg",
+                "message": "I just got a poverty-fighting gift from OxfamGifts.com!"
             },
             function (response) {
               if (response && !response.error) {
                 /* handle the result */
-                console.log(response);
+                console.log("RESPONSE:"+response);
               }
             }
         );
+        function callback(response) {
+            console.log(response);
+        }
+        FB.ui(obj, callback);
     }
         /*
     var body = 'Reading JS SDK documentation';
