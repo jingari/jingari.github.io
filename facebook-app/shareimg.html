@@ -69,10 +69,11 @@
           //str +="<b>User ID:</b> "+response.authResponse.userID;+"<br>";
           str +="<b>id: </b>"+response.id+"<br>";
           str +="<b>Email:</b> "+response.email+"<br>";
+          str +="<b>Profile:</b> "+response.link+"<br>";
           str +="<input type='button' value='Logout' onclick='Logout();'/>";
-          document.getElementById("status").innerHTML=str;
- 
+          document.getElementById("status").innerHTML=str;  
     });
+        document.getElementById("profilelink").href=response.link;
     }
 
     function Logout()
@@ -100,13 +101,14 @@
             function (response) {
               if (response && !response.error) {
                 /* handle the result */
-                alert("Response:"+response.id);
-                console.log("RESPONSE:"+response);
+                var linkurl = 
+                document.getElementById("status").innerHTML="Thanks for sharing!";
+                document.getElementById("profilelink").style.display="inline";
+       //         https://www.facebook.com/permalink.php?story_fbid=1509061069334110&id=100006906948343
+                console.log("RESPONSE:"+response.id);
               }
               else{
-
-                alert("else Response:"+response.id);
-                console.log("else RESPONSE:"+response);
+                 document.getElementById("status").innerHTML="Sorry, we do not have permission to post to your Facebook feed.";
               }
             }
         );
@@ -129,6 +131,7 @@ Logs:<br/>
 </div>
 <div id="status">
  Click on Below Image to start the demo: <br/></div>
+ <a id="profilelink" style="display:none;">View on Facebook</a>
 <img src="https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg"  style="cursor:pointer;" onclick="Login()"/>
 
 </body>
