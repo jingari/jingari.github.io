@@ -72,8 +72,9 @@
           str +="<b>Profile:</b> "+response.link+"<br>";
           str +="<input type='button' value='Logout' onclick='Logout();'/>";
           document.getElementById("status").innerHTML=str;  
+          document.getElementById("profilelink").href=response.link;
     });
-        document.getElementById("profilelink").href=response.link;
+
     }
 
     function Logout()
