@@ -62,26 +62,6 @@
     }
  var uid = "";
   function getUserInfo() {
-
-    FB.getLoginStatus(function(response) {
-  if (response.status === 'connected') {
-    // the user is logged in and has authenticated your
-    // app, and response.authResponse supplies
-    // the user's ID, a valid access token, a signed
-    // request, and the time the access token 
-    // and signed request each expire
-    var uid = response.authResponse.userID;
-    var accessToken = response.authResponse.accessToken;
-  } else if (response.status === 'not_authorized') {
-    // the user is logged in to Facebook, 
-    // but has not authenticated your app
-  } else {
-    // the user isn't logged in to Facebook.
-  }
-  console.log("uid="+uid);
-  console.log("accessToken="+accessToken);
- });
-
         FB.api('/me', function(response) {
 
       var str="<b>Name</b> : "+response.name+"<br>";
@@ -135,11 +115,11 @@
         }
         FB.ui(obj, callback);
       }
-      function postPhoto1(){
+      function postPhoto(){
       var obj = {
             method: "share",
             //link: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
-            picture: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
+            href: 'https://s3.amazonaws.com/oxfamamericaunwrapped.com/ecards/ecard-share.jpg',
             //name: "OxfamGifts.com",
             //caption: "I <3 gifts that give back",
             description: "I just got a poverty-fighting gift from OxfamGifts.com!"
@@ -168,7 +148,7 @@
           });
       }
 
-    function postPhoto(){
+    function postPhoto4(){
       /* make the API call */
         FB.api(
             "/me/photos",
