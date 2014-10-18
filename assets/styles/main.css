@@ -1,0 +1,12 @@
+body{
+
+}
+.logo{
+	margin:0 auto;
+	text-align:center;
+	width:100%;
+}
+.logo img{
+	width:100%;
+	max-width: 824px;
+}
