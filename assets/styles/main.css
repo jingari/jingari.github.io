@@ -3,7 +3,7 @@ body{
 }
 body.subpage{
 	background: #fff url(/assets/img/jingari-sm.jpg) no-repeat;
-	background-position: top right;
+	background-position: top left;
 	margin-top:100px;
 }
 .logo{
