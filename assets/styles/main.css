@@ -78,7 +78,7 @@ ul.social-icons {
     text-align: center;
 }
 ul.social-icons li {
-    display: inline;
+    float: left;
     text-align: center;
     width: 65px;
 }
