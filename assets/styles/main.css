@@ -75,9 +75,10 @@ a.symbol:before {
 }
 ul.social-icons {
     list-style: outside none none;
+    text-align: center;
 }
 ul.social-icons li {
-    float: left;
+    display: inline;
     text-align: center;
     width: 65px;
 }
