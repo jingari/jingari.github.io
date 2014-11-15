@@ -70,6 +70,9 @@ a.symbol:before {
 .github .symbol {
     color: #333;
 }
+.linkedin .symbol {
+    color: #287bbc;
+}
 .email .symbol {
     color: #a40000;
 }
