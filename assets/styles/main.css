@@ -45,18 +45,18 @@ body.subpage{
 }
 .symbol, a.symbol:before {
     font-family: "Mono Social Icons Font";
-    font-size: 50px;
+    font-size: 35px;
     text-decoration: none;
     text-rendering: optimizelegibility;
 }
 a.symbol:before {
     content: attr(title);
-    margin-right: 0.3em;
+    margin-right: 0;
 }
 .symbol {
 }
 .symbol:hover {
-    font-size: 55px;
+    font-size: 38px;
 }
 .facebook .symbol {
     color: #3b5998;
@@ -80,5 +80,5 @@ ul.social-icons {
 ul.social-icons li {
     float: left;
     text-align: center;
-    width: 65px;
+    width:40px;
 }
