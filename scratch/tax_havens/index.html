@@ -1,0 +1,61 @@
+
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+  </head>
+  <body>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Tax Havens Testing</h1>
+        
+          <p><span class="num">1</span><strong>Taxable income:</strong> <input type="number" id="income" class="" /></p>
+      
+          <p><span class="num">2</span><strong>Marital status:</strong> <input type="radio" name="marital_status" value="0" />Single <input type="radio" name="marital_status" value="1" />Married</p>
+    
+       <!-- hide dependents for now <strong>Total # of Dependents (including spouse):</strong> <input type="number" id="dependents" />-->
+     
+        <p><span class="num">3</span><a id="calculate" class="button">Calculate</a></p>
+        <div class="hide showcalc" id="tax_results">
+        <p>YOUR TAX RATE: <span id="your_tax_rate"></span>%</p>
+        <p>YOUR TAX BILL: $<span id="your_tax_bill"></span></p>
+      </div>
+    
+    </div>
+    <div class="row hide showcalc">
+      <div class="large-12 columns">
+        <h3>At this rate it would take you <span id="years"></span> years to pay the $100 billion in taxes companies dodge each year.</h3>
+      </div>
+    </div>
+    <div class="row hide showcalc">
+      <div class="large-12 columns">
+        <h2>Corporate comparisons</h2>
+      </div>
+    </div>
+    <div class="row hide showcalc">
+      <div class="large-4 columns">
+          <p><span class="num">1</span><a id="calculate_corp" class="button">Calculate Corp Rate</a></p>
+      </div>
+      <div class="large-4 columns hide showcorpcalc">
+          <p>YOUR CORP RATE: <span id="corp_tax_rate"></span>%</p>
+          <p>YOUR CORP BILL: $<span id="corp_tax_bill"></span></p>
+      </div>
+      <div class="large-4 columns hide showcorpcalc">
+          <p>Difference: $<span id="corp_tax_diff"></span></p>
+      </div>
+    
+    </div>
+    
+    
+      </div>
+    </div> 
+    
+
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
