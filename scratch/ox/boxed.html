@@ -18,6 +18,7 @@ $(document).ready(function(){
                 disclosure.toggleClass('is-active');
                 showmore.toggleClass('is-active');
                 caption.toggleClass('hide');
+                content.toggleClass('hide');
                 if(showmore.hasClass('is-active')){
                     showmore.html("Show less");
                     photo.attr('src',photo.data('expand'));
