@@ -1,0 +1,36 @@
+
+<script>
+		$(".oxfam-disclosure").each(function(){
+			var disclosure = $(this);
+			var content = $(this).find(".oxfam-disclosure--content");
+			var showmore = $(this).find(".oxfam-disclosure--button__showmore");
+			var photo = $(this).find(".oxfam-disclosure--photo img");
+			var caption = $(this).find(".oxfam-disclosure--photo__caption");
+			showmore.click(function(e){
+				e.preventDefault();
+				$( content ).slideToggle( "fast" );
+				disclosure.toggleClass('is-active');
+				showmore.toggleClass('is-active');
+				caption.toggleClass('hide');
+				if(showmore.hasClass('is-active')){
+					showmore.html("Show less");
+					photo.attr('src',photo.data('expand'));
+
+				}
+				else{
+					showmore.html("Show more");
+					photo.attr('src',photo.data('unexpand'));
+				}
+			});
+		});
+</script>
+
+<div class="oxfam-disclosure media-object nophoto">
+  <div class="media-object-section main-section primary">
+    <h3 class="oxfam-disclosure--heading--3">Bio: Meet Joe Smith, Lorem ipsum dolor</h3>
+    <p class="oxfam-disclosure--content" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<p class="oxfam-disclosure--button"><a class="oxfam-disclosure--button__showmore">Show more</a></p>
+  </div>
+</div>
+
+
