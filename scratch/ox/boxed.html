@@ -5,6 +5,7 @@
   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
   crossorigin="anonymous"></script>
 <script>
+$(document).ready(function(){
  var toggleBoxedContent = function(event,type){
         var element = jQuery(event.toElement);
         element.addClass("hide");
@@ -29,6 +30,7 @@
             jQuery("#boxedContentDiv"+component_count).removeClass("is-active");
         }
     };
+});
 </script>
 <style>.hide {
   display: none !important; }</style>
