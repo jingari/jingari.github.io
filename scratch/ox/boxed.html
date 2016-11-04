@@ -6,47 +6,40 @@
   crossorigin="anonymous"></script>
 <script>
 $(document).ready(function(){
- var toggleBoxedContent = function(event,type){
-        var element = jQuery(event.toElement);
-        element.addClass("hide");
-        var component_count = element.attr("data-component-count");
-        if ( type == "more" )
-        {
+ $(".oxfam-disclosure").each(function(){
+            var disclosure = $(this);
+            var content = $(this).find(".oxfam-disclosure--content");
+            var showmore = $(this).find(".oxfam-disclosure--button__showmore");
+            var photo = $(this).find(".oxfam-disclosure--photo img");
+            var caption = $(this).find(".oxfam-disclosure--photo__caption");
+            showmore.click(function(e){
+                e.preventDefault();
+                $( content ).slideToggle( "fast" );
+                disclosure.toggleClass('is-active');
+                showmore.toggleClass('is-active');
+                caption.toggleClass('hide');
+                if(showmore.hasClass('is-active')){
+                    showmore.html("Show less");
+                    photo.attr('src',photo.data('expand'));
 
-            jQuery("#boxedContentShowLessBtn" + component_count).removeClass("hide");
-            jQuery("#boxedContentBody" + component_count).removeClass("oxfam-disclosure--content");
-            jQuery("#boxedContentImageDiv" + component_count + " > .oxfam-disclosure--photo__open").removeClass("hide");
-            jQuery("#boxedContentImageDiv" + component_count + " > .oxfam-disclosure--photo__closed").addClass("hide");
-            jQuery("#boxedContentDiv"+component_count).addClass("is-active");
-        
-    
-        }
-        else if ( type == "less" )
-        {
-            jQuery("#boxedContentShowMoreBtn" + component_count).removeClass("hide");
-            jQuery("#boxedContentBody" + component_count).addClass("oxfam-disclosure--content");
-            jQuery("#boxedContentImageDiv" + component_count + " > .oxfam-disclosure--photo__open").addClass("hide");
-            jQuery("#boxedContentImageDiv" + component_count + " > .oxfam-disclosure--photo__closed").removeClass("hide");
-            jQuery("#boxedContentDiv"+component_count).removeClass("is-active");
-        }
-    };
+                }
+                else{
+                    showmore.html("Show more");
+                    photo.attr('src',photo.data('unexpand'));
+                }
+            });
+        });
 });
 </script>
 <style>.hide {
   display: none !important; }</style>
 </head>
 <body>
-<div class="oxfam-boxed media-object">
+<div class="oxfam-disclosure media-object nophoto">
   <div class="media-object-section main-section primary">
-    <h3 class="oxfam-boxed--heading--3">Bio: Meet Joe Smith, Lorem ipsum dolor</h3>
-    <p class="oxfam-boxed--content hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		<p class="oxfam-boxed--button"><a class="oxfam-boxed--button__showmore">Show more</a></p>
-  </div>
-  <div class="media-object-section bottom secondary">
-    <div class=" oxfam-boxed--photo">
-     <img data-expand="/static/dpp/assets/images/boxed-photo-expand.jpg" data-unexpand="/static/dpp/assets/images/boxed-photo.jpg" src="/static/dpp/assets/images/boxed-photo.jpg" />
-			<p class="oxfam-boxed--photo__caption hide">Brett Eloff/Oxfam America</p>
-    </div>
+    <h3 class="oxfam-disclosure--heading--3">Bio: Meet Joe Smith, Lorem ipsum dolor</h3>
+    <p class="oxfam-disclosure--content hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p class="oxfam-disclosure--button"><a class="oxfam-disclosure--button__showmore">Show more</a></p>
   </div>
 </div>
 </body>
